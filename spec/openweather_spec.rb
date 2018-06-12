@@ -1,7 +1,6 @@
 require 'spec_helper'
 require_relative '../lib/gen/city_id_generator'
 
-
 describe Openweatherio do
 
   context 'Testing city IDs and related weather data' do
@@ -16,7 +15,7 @@ describe Openweatherio do
       expect(@city_weather.get_id).to be_kind_of(Integer)
     end
 
-    it 'ID should be bewtween 5 and 8 in length' do
+    it 'ID should be between 5 and 8 in length' do
       expect(@city_weather.get_id_length).to be_between(5, 8)
     end
 

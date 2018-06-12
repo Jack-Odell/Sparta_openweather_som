@@ -28,6 +28,6 @@ class SingleCityService
   end
 
   def get_id_length
-    @single_city_data['id'].length
+    @single_city_data['id'].to_s.length
   end
 end
