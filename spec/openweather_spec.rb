@@ -20,5 +20,13 @@ describe Openweatherio do
     it 'City name should be a string' do
       expect(@city_weather.get_city_name).to be_kind_of(String)
     end
+
+    it 'Longitude should contain a float' do
+      expect(@city_weather.get_longitude).to be_kind_of(Float)
+    end
+
+    it 'Latitude should contain a float' do
+      expect(@city_weather.get_latitude).to be_kind_of(Float)
+    end
   end
 end

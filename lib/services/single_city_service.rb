@@ -14,4 +14,12 @@ class SingleCityService
   def get_city_name
     @single_city_data['name']
   end
+
+  def get_longitude
+    @single_city_data['coord']['lon']
+  end
+
+  def get_latitude
+    @single_city_data['coord']['lat']
+  end
 end
