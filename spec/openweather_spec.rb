@@ -1,5 +1,6 @@
 require 'spec_helper'
 require_relative '../lib/gen/city_id_generator'
+require_relative '../lib/gen/json_city_generator'
 
 describe Openweatherio do
 
@@ -49,6 +50,18 @@ describe Openweatherio do
 
     it 'Latitude should contain a float' do
       expect(@city_weather.get_latitude).to be_kind_of(Float)
+    end
+  end
+
+  context 'Checking JSON file against YAML file'  do
+
+    before(:all) do
+      @json_output = JsonCityGenerator.new
+      @random_id = CityIdGenerator.new.get_random_id
+    end
+
+    it 'ID from JSON file and YAML file should match' do
+        expect(@json_output.get_id).to eq(@random_id)
     end
   end
 end
