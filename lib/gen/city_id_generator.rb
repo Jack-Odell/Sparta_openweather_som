@@ -10,6 +10,6 @@ class CityIdGenerator
   end
 
   def get_random_id
-    @random_city_id = @city_id.sample
+    @city_id.sample
   end
 end
