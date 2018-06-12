@@ -22,4 +22,12 @@ class SingleCityService
   def get_latitude
     @single_city_data['coord']['lat']
   end
+
+  def get_id
+    @single_city_data['id']
+  end
+
+  def get_id_length
+    @single_city_data['id'].length
+  end
 end
