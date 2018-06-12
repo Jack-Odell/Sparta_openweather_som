@@ -3,7 +3,18 @@ require_relative '../lib/gen/city_id_generator'
 
 describe Openweatherio do
 
-  context 'Testing city IDs and related weather data' do
+  context 'Testing function outpts' do
+    before(:all) do
+      @openweather_class = Openweatherio.new
+      @random_class = CityIdGenerator.new
+    end
+
+    it 'Generator should return and array from .yml file' do
+      expect(@random_class.get_array).to be_kind_of(Array)
+    end
+  end
+
+  context 'Testing city IDs in city_id.yml related to weather data and openweather API' do
 
     before(:all) do
       @random_id = CityIdGenerator.new.get_random_id
