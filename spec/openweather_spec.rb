@@ -58,10 +58,16 @@ describe Openweatherio do
     before(:all) do
       @json_output = JsonCityGenerator.new
       @random_id = CityIdGenerator.new.get_random_id
+      @city_weather = Openweatherio.new.single_city_service
+      @city_weather.get_single_city(@random_id, '0493594695543a0554506e3384c389e2')
     end
 
     it 'ID from JSON file and YAML file should match' do
-        expect(@json_output.get_id).to eq(@random_id)
+      expect(@json_output.get_id(@random_id)).to eq(@random_id)
+    end
+
+    it 'ID from openweather API should match json ID' do
+      expect(@city_weather.get_id).to eq(@json_output.get_id(@random_id))
     end
   end
 end
