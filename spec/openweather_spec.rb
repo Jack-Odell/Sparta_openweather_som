@@ -3,7 +3,8 @@ require_relative '../lib/gen/city_id_generator'
 
 describe Openweatherio do
 
-  context 'Testing function outpts' do
+  context 'Testing function outputs' do
+
     before(:all) do
       @openweather_class = Openweatherio.new
       @random_class = CityIdGenerator.new
@@ -11,6 +12,10 @@ describe Openweatherio do
 
     it 'Generator should return and array from .yml file' do
       expect(@random_class.get_array).to be_kind_of(Array)
+    end
+
+    it 'city_id.yml should contain generated ID' do
+      expect(@random_class.get_array).to include(@random_class.get_random_id)
     end
   end
 
@@ -20,6 +25,10 @@ describe Openweatherio do
       @random_id = CityIdGenerator.new.get_random_id
       @city_weather = Openweatherio.new.single_city_service
       @city_weather.get_single_city(@random_id, '0493594695543a0554506e3384c389e2')
+    end
+
+    it 'ID should be the same as random generated ID' do
+      expect(@city_weather.get_id).to eq(@random_id)
     end
 
     it 'ID should be and Integer' do
