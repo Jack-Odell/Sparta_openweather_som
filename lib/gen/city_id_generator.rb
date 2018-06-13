@@ -8,7 +8,7 @@ class CityIdGenerator
   def initialize
     @city_id = YAML.load_file('city_id.yml')
   end
-  
+
   def get_array
     @city_id
   end

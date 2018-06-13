@@ -22,6 +22,15 @@ class JsonCityGenerator
     end
     @hash
   end
+
+  def get_city_name(random_id)
+    @city_json.each do |hash|
+      if hash['id'] == random_id
+        @hash = hash['name']
+      end
+    end
+    @hash
+  end
 end
 
 ran_id = CityIdGenerator.new.get_random_id

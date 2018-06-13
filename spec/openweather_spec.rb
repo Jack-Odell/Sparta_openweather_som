@@ -28,15 +28,15 @@ describe Openweatherio do
       @city_weather.get_single_city(@random_id, '0493594695543a0554506e3384c389e2')
     end
 
-    it 'ID should be the same as random generated ID' do
+    it 'API ID should be the same as random generated ID' do
       expect(@city_weather.get_id).to eq(@random_id)
     end
 
-    it 'ID should be and Integer' do
+    it 'API ID should be and Integer' do
       expect(@city_weather.get_id).to be_kind_of(Integer)
     end
 
-    it 'ID should be between 5 and 8 in length' do
+    it 'API ID should be between 5 and 8 in length' do
       expect(@city_weather.get_id_length).to be_between(5, 8)
     end
 
@@ -68,6 +68,10 @@ describe Openweatherio do
 
     it 'ID from openweather API should match json ID' do
       expect(@city_weather.get_id).to eq(@json_output.get_id(@random_id))
+    end
+
+    it 'Name of city from API should match city name from JSON file' do
+      expect(@city_weather.get_city_name).to eq(@json_output.get_city_name(@random_id))
     end
   end
 end
