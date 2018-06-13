@@ -32,8 +32,3 @@ class JsonCityGenerator
     @hash
   end
 end
-
-ran_id = CityIdGenerator.new.get_random_id
-call = JsonCityGenerator.new
-# p call.print_json
-call.get_id(ran_id)

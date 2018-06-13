@@ -15,7 +15,7 @@ describe Openweatherio do
       expect(@random_class.get_array).to be_kind_of(Array)
     end
 
-    it 'city_id.yml should contain generated ID' do
+    it 'city_id.yml array should contain generated ID' do
       expect(@random_class.get_array).to include(@random_class.get_random_id)
     end
   end
